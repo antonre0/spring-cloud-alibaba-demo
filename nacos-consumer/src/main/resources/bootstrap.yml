@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: nacos-demo-consumer
+  cloud:
+    nacos:
+      config:
+        server-addr: 39.107.49.87:8848 #配置中心地址
+        file-extension: yaml #指定配置文件扩展名，配置文件名称根据application.name+扩展名
