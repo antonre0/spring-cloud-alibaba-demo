@@ -14,7 +14,7 @@ dubbo:
     base-packages: com.ncars.nacos.service
   protocol:
     name: dubbo #协议
-    port: 20881
+    port: 20880
   registry:
     address: nacos://39.107.49.87:8848
   application:
