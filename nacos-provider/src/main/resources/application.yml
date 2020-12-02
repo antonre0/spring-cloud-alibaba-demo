@@ -8,6 +8,13 @@ spring:
       discovery:
         server-addr: 39.107.49.87:8848
         namespace: dev-d #指定nacos命名空间
+
+    # 熔断限流
+    sentinel:
+      transport:
+        dashboard: localhost:8888
+        port: 8888
+
   main:
     allow-bean-definition-overriding: true #spring boot 2.1 需设置
 dubbo:
