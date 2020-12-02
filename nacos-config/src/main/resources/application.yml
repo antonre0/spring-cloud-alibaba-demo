@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.107.49.87:8848 #注册中心地址
+dubbo:
+  registry:
+    address: nacos://39.107.49.87:8848

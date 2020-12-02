@@ -1,12 +1,22 @@
 server:
   port: 8081
 spring:
-  application:
-    name: nacos-demo-consumer
   cloud:
     nacos:
       discovery:
         server-addr: 39.107.49.87:8848 #注册中心地址
+        namespace: dev-d
 dubbo:
   registry:
-    address: nacos://39.107.49.87:8848
+    address: nacos://${spring.cloud.nacos.discovery.server-addr}
+    parameters[namespace]: ${spring.cloud.nacos.discovery.namespace}
+  protocol:
+    name: dubbo #协议
+    port: 20881
+  application:
+    qos-enable: false #dubbo运维服务是否开启
+  consumer:
+    check: false
+
+rm:
+  name: aaa

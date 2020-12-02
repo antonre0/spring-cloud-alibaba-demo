@@ -2,6 +2,7 @@ package com.ncars.nacos.controller;
 
 import com.alibaba.nacos.api.exception.NacosException;
 import com.ncars.nacos.service.UserService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,7 +43,7 @@ public class TestController {
         return forObject;
     }
 
-    @org.apache.dubbo.config.annotation.Reference
+    @DubboReference
     private UserService userService;
 
     @GetMapping("/dd")
