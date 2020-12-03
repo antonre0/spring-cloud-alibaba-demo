@@ -1,0 +1,27 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: nacos-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.107.49.87:8848
+        namespace: dev-d #指定nacos命名空间
+
+    gateway:
+#      discovery:
+#        locator:
+#          # 让gateway通过服务发现组件找到其他的微服务
+#          enabled: true
+      routes:
+        - id: nacos-demo-consumer  # 唯一标识，通常使用服务id
+          uri: lb://nacos-demo-consumer  # 目标URL，lb代表从注册中心获取服务，lb是Load Balance的缩写
+          predicates:
+            - Path=/c/** #匹配转发路径
+          filters:
+            - StripPrefix=1 #从第几级开始转发
+
+
+  main:
+    allow-bean-definition-overriding: true #spring boot 2.1 需设置

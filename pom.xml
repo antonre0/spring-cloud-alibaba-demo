@@ -12,6 +12,7 @@
         <module>nacos-consumer</module>
         <module>nacos-dubbo-interface</module>
         <module>nacos-config</module>
+        <module>nacos-gateway</module>
     </modules>
     <packaging>pom</packaging>
 
