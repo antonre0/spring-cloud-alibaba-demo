@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 39.107.49.87:8848 #注册中心地址
+        server-addr: localhost:8848 #注册中心地址
         namespace: dev-d
 
     # 熔断限流
@@ -20,10 +20,13 @@ dubbo:
   protocol:
     name: dubbo #协议
     port: 20881
+    serialization: kryo
+    optimizer: com.ncars.nacos.SerializationOptimizerImpl
   application:
     qos-enable: false #dubbo运维服务是否开启
   consumer:
     check: false
+    timeout: 1000
 
 rm:
   name: aaa

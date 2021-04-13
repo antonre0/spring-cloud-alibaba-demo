@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 39.107.49.87:8848
+        server-addr: localhost:8848
         namespace: dev-d #指定nacos命名空间
 
     # 熔断限流
@@ -23,6 +23,8 @@ dubbo:
   protocol:
     name: dubbo #协议
     port: 20880
+    serialization: kryo
+    optimizer: com.ncars.nacos.SerializationOptimizerImpl
   registry:
     address: nacos://${spring.cloud.nacos.discovery.server-addr}
     parameters[namespace]: ${spring.cloud.nacos.discovery.namespace}  #指定dubbo暴露服务的命名空间
